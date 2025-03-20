@@ -13,6 +13,7 @@ import tickMark from "./icons/tick.svg";
 
 import heroBg from "./images/hero-bg.png";
 import boxShape from "./images/box-shape.png";
+import dummyQr from "./images/qr-code-logo-png_seeklogo-217342.png";
 
 export const ICONS = {
     dummyLogo,
@@ -32,4 +33,5 @@ export const ICONS = {
 export const IMAGES = {
     heroBg,
     boxShape,
+    dummyQr,
 };

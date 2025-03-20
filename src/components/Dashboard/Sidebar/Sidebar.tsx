@@ -12,8 +12,8 @@ const Sidebar: React.FC = () => {
   const ownerMenus = [
     { name: "Dashboard", link: "/dashboard" },
     { name: "My Profile", link: "/dashboard/my-profile"},
-    { name: "My Products", link: "/dashboard/my-products"},
-    { name: "Add New Product", link: "/dashboard/add-new-product" },
+    { name: "My Products", link: "/dashboard/owner/my-products"},
+    { name: "Add New Product", link: "/dashboard/owner/add-new-product" },
     // { name: "My Orders", link: "/dashboard/my-orders" },
   ];
 
