@@ -36,6 +36,16 @@ const AddNewProduct = () => {
         setQrValue(JSON.stringify(productData));
     };
 
+    const steps = [
+        "Fill the required details related to your product.",
+        "Click on Generate QR Code.",
+        "Then Your QR Code will be ready to download.",
+        "Click on Save & Download QR Code to save and download the QR Code in your device and print.",
+        "You can also add more products by following the same steps.",
+        "Now you can share this QR Code with your customers to avail the offer.",
+
+    ]
+
     return (
         <div className="font-Inter">
             <h1 className="text-neutral-10 font-bold text-2xl capitalize">Add new product</h1>
@@ -117,16 +127,20 @@ const AddNewProduct = () => {
 
                 </form>
 
-                {/* Steps */}
+                {/* Steps to add product */}
                 <div className="bg-primary-10 rounded-2xl relative flex justify-center">
                     <img src={IMAGES.heroBg} alt="hero-image" className="absolute w-full h-full rounded-2xl z-0 opacity-60 object-cover" />
                     <div className="z-50 p-5 text-white">
                         <h1 className="font-bold text-lg capitalize">Steps to add product</h1>
                         <div className="flex flex-col gap-3 mt-3">
-                            <div className="flex gap-3">
-                                <img src={ICONS.tickMark} alt="tick-mark" className="size-6" />
-                                <p className="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, similique?</p>
-                            </div>
+                            {
+                                steps?.map((step: string) =>
+                                    <div key={step} className="flex gap-3">
+                                        <img src={ICONS.tickMark} alt="tick-mark" className="size-6" />
+                                        <p className="text-sm">{step}</p>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 </div>
