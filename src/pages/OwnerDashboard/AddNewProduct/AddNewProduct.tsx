@@ -3,6 +3,7 @@ import TextInput from "../../../components/Reusable/TextInput/TextInput";
 import { ICONS, IMAGES } from "../../../../public/assets";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 import { useState } from "react";
+import {QRCodeCanvas} from 'qrcode.react';
 
 type TFormData = {
     productName: string;
@@ -19,11 +20,14 @@ const AddNewProduct = () => {
 
     const handleAddProduct = () => {
         console.log("object");
-    }
+    };
+
     return (
         <div className="font-Inter">
             <h1 className="text-neutral-10 font-bold text-2xl capitalize">Add new product</h1>
             <p className="text-neutral-10 text-sm mt-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, similique?</p>
+
+            <QRCodeCanvas value="https://reactjs.org/" />
 
             <div className="flex gap-7 mt-10">
                 <form onSubmit={handleSubmit(handleAddProduct)} className="flex flex-col gap-5 bg-neutral-light-20 shadow p-6 rounded-2xl">
@@ -83,13 +87,13 @@ const AddNewProduct = () => {
                 <div className="bg-primary-10 rounded-2xl relative flex justify-center">
                     <img src={IMAGES.heroBg} alt="hero-image" className="absolute w-full h-full rounded-2xl z-0 opacity-60" />
                     <div className="z-50 p-5 text-white">
-                    <h1 className="font-bold text-lg capitalize">Steps to add product</h1>
-                    <div className="flex flex-col gap-3 mt-3">
-                    <div className="flex gap-3">
-                        <img src={ICONS.tickMark} alt="tick-mark" className="size-6" />
-                        <p className="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, similique?</p>
-                    </div>
-                    </div>
+                        <h1 className="font-bold text-lg capitalize">Steps to add product</h1>
+                        <div className="flex flex-col gap-3 mt-3">
+                            <div className="flex gap-3">
+                                <img src={ICONS.tickMark} alt="tick-mark" className="size-6" />
+                                <p className="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, similique?</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
