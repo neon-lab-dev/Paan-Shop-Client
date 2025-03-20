@@ -14,6 +14,7 @@ const Navbar = () => {
     ];
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [step, setStep] = useState<"personal" | "business">("personal");
 
     return (
         <Container>
@@ -33,14 +34,17 @@ const Navbar = () => {
                             <img src={ICONS.call} alt="logo" className="size-4" />
                             Call Us
                         </Link>
-                        <button onClick={() => setIsModalOpen(true)} className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer">
+                        <button onClick={() => {
+                            setIsModalOpen(true);
+                            setStep("personal");
+                        }} className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer">
                             Sign Up For Free
                         </button>
                     </div>
                 </div>
             </nav>
 
-            <PersonalInfoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+            <PersonalInfoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} step={step} setStep={setStep} />
         </Container>
     );
 };

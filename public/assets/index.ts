@@ -8,6 +8,7 @@ import downArrow from "./icons/down-arrow.svg";
 import linkedin from "./icons/linkedin.svg";
 import instagram from "./icons/instagram.svg";
 import cross from "./icons/cross.svg";
+import leftArrow from "./icons/left-arrow.svg";
 
 import heroBg from "./images/hero-bg.png";
 import boxShape from "./images/box-shape.png";
@@ -23,6 +24,7 @@ export const ICONS = {
     instagram,
     linkedin,
     cross,
+    leftArrow,
 };
 
 export const IMAGES = {
