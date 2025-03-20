@@ -31,7 +31,7 @@ const HowItWorks = () => {
 
     return (
         <Container>
-            <div className="mt-28 font-Inter">
+            <div className="mt-32 font-Inter">
                 <h1 className="text-neutral-10 font-bold text-[48px] leading-[56px] max-w-[850px] mx-auto text-center">How It Works?</h1>
                 <p className="text-neutral-10 leading-[25px] max-w-[700px] mx-auto text-center mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores odit magni aspernatur atque sapiente possimus fugit tenetur error a consequatur?</p>
 

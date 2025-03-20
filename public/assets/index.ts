@@ -5,8 +5,11 @@ import play from "./icons/play.svg";
 import playBlue from "./icons/play-blue.svg";
 import rightArrow from "./icons/right-arrow.svg";
 import downArrow from "./icons/down-arrow.svg";
+import linkedin from "./icons/linkedin.svg";
+import instagram from "./icons/instagram.svg";
 
 import heroBg from "./images/hero-bg.png";
+import boxShape from "./images/box-shape.png";
 
 export const ICONS = {
     dummyLogo,
@@ -16,8 +19,11 @@ export const ICONS = {
     playBlue,
     rightArrow,
     downArrow,
+    instagram,
+    linkedin,
 };
 
 export const IMAGES = {
     heroBg,
+    boxShape,
 };
