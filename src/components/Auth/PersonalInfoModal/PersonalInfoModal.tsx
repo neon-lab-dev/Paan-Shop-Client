@@ -19,7 +19,14 @@ type TFormData = {
     city: string;
 }
 
-const PersonalInfoModal = ({ isModalOpen, setIsModalOpen, step, setStep }) => {
+type TPersonalInfoModalProps = {
+    isModalOpen: boolean;
+    setIsModalOpen: (isOpen: boolean) => void;
+    step: "personal" | "business";
+    setStep: (step: "personal" | "business") => void;
+}
+
+const PersonalInfoModal:React.FC<TPersonalInfoModalProps> = ({ isModalOpen, setIsModalOpen, step, setStep }) => {
     const [formData, setFormData] = useState<Partial<TFormData>>({});
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -32,7 +39,6 @@ const PersonalInfoModal = ({ isModalOpen, setIsModalOpen, step, setStep }) => {
 
     const handleSignup = (data: TFormData) => {
         if (step === "personal") {
-            // Store personal data and move to business step
             setIsLoading(true);
             setTimeout(() => {
                 setIsLoading(false);
@@ -40,26 +46,20 @@ const PersonalInfoModal = ({ isModalOpen, setIsModalOpen, step, setStep }) => {
                 setStep("business");
             }, 2000);
         } else {
-            // Submit full data (personal + business)
             const finalData = { ...formData, ...data };
             console.log("Final Submission Data:", finalData);
-
-            // Call API Here
-            // Example: await axios.post("/api/signup", finalData);
         }
     };
 
     return (
         <div
             className={`${isModalOpen ? " visible" : " invisible"
-                } w-full h-screen fixed top-0 left-0 z-[200000000] bg-[#0000002a] transition-all duration-300 flex items-center justify-center font-Inter`}
-        >
+                } w-full h-screen fixed top-0 left-0 z-[200000000] bg-[#0000002a] transition-all duration-300 flex items-center justify-center font-Inter`}>
             <div
                 className={`${isModalOpen
                     ? " scale-[1] opacity-100"
                     : " scale-[0] opacity-0"
-                    } max-w-[550px] w-full bg-[#fff] rounded-2xl transition-all duration-300 mx-auto mt-8`}
-            >
+                    } max-w-[550px] w-full bg-white rounded-2xl transition-all duration-300 mx-auto mt-8 max-h-[690px] overflow-y-auto`}>
                 <div className="p-6">
                     {/* Header */}
                     <div className="flex items-center gap-5">
@@ -123,7 +123,7 @@ const PersonalInfoModal = ({ isModalOpen, setIsModalOpen, step, setStep }) => {
 
                         <div className="flex items-center justify-between border-t pt-4 border-neutral-10/10">
                             <div>
-                                <p className="font-bold text-primary-10">Having trouble signing up?</p>
+                                <p className="font-bold text-primary-10">Having trouble to sign up?</p>
                                 <p className="text-neutral-10 mt-1 text-sm">
                                     <a href="callto:918787544" className="font-bold">
                                         Call Us

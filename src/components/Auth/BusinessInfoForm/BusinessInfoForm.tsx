@@ -1,7 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import TextInput from '../../Reusable/TextInput/TextInput';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
-const BusinessInfoForm = ({ register, errors }) => {
+type TBusinessInfoFormProps = {
+    register: UseFormRegister<any>;
+    errors: FieldErrors<any>;
+}
+
+const BusinessInfoForm: React.FC<TBusinessInfoFormProps> = ({ register, errors }) => {
     const [isChecked, setIsChecked] = useState<boolean>(false);
     return (
         <div className="flex flex-col gap-5">
