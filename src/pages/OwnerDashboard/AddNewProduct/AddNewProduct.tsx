@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import TextInput from "../../../components/Reusable/TextInput/TextInput";
 import { ICONS, IMAGES } from "../../../../public/assets";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { QRCodeCanvas } from 'qrcode.react';
 import { Link } from "react-router-dom";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import QRCodePDF from "../../../components/QRCodePDF/QRCodePDF";
 
 type TFormData = {
     productName: string;
@@ -13,6 +16,7 @@ type TFormData = {
 }
 const AddNewProduct = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const qrRef = useRef<any>(null);
     const {
         register,
         handleSubmit,
@@ -20,11 +24,34 @@ const AddNewProduct = () => {
     } = useForm<TFormData>();
 
     const [qrValue, setQrValue] = useState<string>("");
+    const [productName, setProductName] = useState<string>("");
+    const [buyValue, setBuyValue] = useState<number>(0);
+    const [getFreeValue, setGetFreeValue] = useState<number>(0);
+    console.log(qrValue);
+    const [qrImageUrl, setQrImageUrl] = useState<string>("");
+    console.log(qrImageUrl);
 
     const sellerName = "Rahul Sutradhar";
     const shopName = "The Paan Mart";
 
-    const handleAddProduct = (data: TFormData) => {
+    const generateQRCode = () => {
+        return new Promise<void>((resolve) => {
+            setIsLoading(true);
+            setTimeout(() => {
+                const canvas = qrRef.current;
+                if (canvas) {
+                    const dataUrl = canvas.toDataURL("image/png");
+                    setQrImageUrl(dataUrl);
+                    setIsLoading(false);
+                    resolve();
+                }
+            }, 500);
+        });
+    };
+
+    const handleAddProduct = async (data: TFormData) => {
+        setIsLoading(true);
+
         const productData = {
             productName: data.productName,
             buyValue: data.buyValue,
@@ -32,9 +59,20 @@ const AddNewProduct = () => {
             shopName,
             sellerName,
         };
+        setProductName(data.productName);
+        setBuyValue(data.buyValue);
+        setGetFreeValue(data.getFreeValue);
 
         setQrValue(JSON.stringify(productData));
+
+        await generateQRCode();
+
+        setIsLoading(false);
     };
+
+
+
+
 
     const steps = [
         "Fill the required details related to your product.",
@@ -58,7 +96,8 @@ const AddNewProduct = () => {
                         qrValue &&
                         <div className="">
                             <h1 className="font-bold text-lg capitalize mb-3 text-green-600">Your QR Code is ready</h1>
-                            <QRCodeCanvas value={qrValue} size={200} />
+                            <QRCodeCanvas value={qrValue} size={200} ref={qrRef} />
+
                         </div>
                     }
 
@@ -101,28 +140,39 @@ const AddNewProduct = () => {
                     </div>
 
                     <div className="flex items-center justify-end gap-3">
-                        <Link to={"/dashboard/owner"} className="bg-white rounded-[10px] text-neutral-10 px-5 py-3 font-semibold border border-neutral-10/30 hover:bg-primary-10/20 transition duration-300 flex items-center gap-2 cursor-pointer">
+                        <Link
+                            to={"/dashboard/owner"}
+                            className="bg-white rounded-[10px] text-neutral-10 px-5 py-3 font-semibold border border-neutral-10/30 hover:bg-primary-10/20 transition duration-300 flex items-center gap-2 cursor-pointer"
+                        >
                             <img src={ICONS.leftArrow} alt="left-arrow" className="size-3" />
                             Cancel
                         </Link>
-                        {
-                            qrValue ?
-                                <button
-                                    className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer"
-                                    type="button"
-                                    disabled={isLoading}
-                                >
-                                    {isLoading ? <LoadingSpinner /> : "Save & Download QR Code"}
-                                </button>
-                                :
-                                <button
-                                    className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer"
-                                    type="submit"
-                                    disabled={isLoading}
-                                >
-                                    {isLoading ? <LoadingSpinner /> : "Generate QR Code"}
-                                </button>
-                        }
+                        {qrImageUrl ? (
+                            <PDFDownloadLink
+                                document={
+                                    <QRCodePDF
+                                        productName={productName}
+                                        sellerName={sellerName}
+                                        shopName={shopName}
+                                        buyValue={buyValue}
+                                        qrImageUrl={qrImageUrl}
+                                        getFreeValue={getFreeValue}
+                                    />
+                                }
+                                fileName={`${productName}_QR.pdf`}
+                                className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer"
+                            >
+                                {({ loading }) => (loading ? <LoadingSpinner /> : "Save & Download QR Code")}
+                            </PDFDownloadLink>
+                        ) : (
+                            <button
+                                className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer"
+                                type="submit"
+                                disabled={isLoading}
+                            >
+                                {isLoading ? <LoadingSpinner /> : "Generate QR Code"}
+                            </button>
+                        )}
                     </div>
 
                 </form>
