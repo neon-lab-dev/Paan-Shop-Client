@@ -1,7 +1,7 @@
 
 const DashboardHeader = () => {
     return (
-        <div>
+        <div className="p-5 bg-primary-10/5 w-full">
            Dashboard Header 
         </div>
     );

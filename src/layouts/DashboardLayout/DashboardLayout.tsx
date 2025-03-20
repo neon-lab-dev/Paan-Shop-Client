@@ -5,10 +5,12 @@ import DashboardHeader from "../../components/Dashboard/DashboardHeader/Dashboar
 const DashboardLayout = () => {
     return (
         <div className="flex">
-            <Sidebar/>
-            <div>
-            <DashboardHeader/>
-            <Outlet/>
+            <Sidebar />
+            <div className="w-full">
+                <DashboardHeader />
+                <div className="p-5">
+                    <Outlet />
+                </div>
             </div>
         </div>
     );

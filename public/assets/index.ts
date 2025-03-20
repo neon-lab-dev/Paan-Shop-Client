@@ -9,6 +9,7 @@ import linkedin from "./icons/linkedin.svg";
 import instagram from "./icons/instagram.svg";
 import cross from "./icons/cross.svg";
 import leftArrow from "./icons/left-arrow.svg";
+import tickMark from "./icons/tick.svg";
 
 import heroBg from "./images/hero-bg.png";
 import boxShape from "./images/box-shape.png";
@@ -25,6 +26,7 @@ export const ICONS = {
     linkedin,
     cross,
     leftArrow,
+    tickMark,
 };
 
 export const IMAGES = {

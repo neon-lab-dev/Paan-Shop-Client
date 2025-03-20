@@ -59,7 +59,7 @@ const PersonalInfoModal:React.FC<TPersonalInfoModalProps> = ({ isModalOpen, setI
                 className={`${isModalOpen
                     ? " scale-[1] opacity-100"
                     : " scale-[0] opacity-0"
-                    } max-w-[550px] w-full bg-white rounded-2xl transition-all duration-300 mx-auto mt-8 max-h-[690px] overflow-y-auto`}>
+                    } max-w-[550px] w-full bg-white rounded-2xl transition-all duration-300 mx-auto mt-8 max-h-[590px] 2xl:max-h-[690px] overflow-y-auto`}>
                 <div className="p-6">
                     {/* Header */}
                     <div className="flex items-center gap-5">
