@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ICONS } from './../../../../public/assets/index';
 import Container from "../../Reusable/Container/Container";
+import { useState } from "react";
+import PersonalInfoModal from "../../Auth/PersonalInfoModal/PersonalInfoModal";
 
 const Navbar = () => {
     const navLinks = [
@@ -10,6 +12,8 @@ const Navbar = () => {
         { label: "Pricing", path: "/pricing" },
         { label: "Contact Us", path: "/contact" },
     ];
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <Container>
@@ -29,14 +33,14 @@ const Navbar = () => {
                             <img src={ICONS.call} alt="logo" className="size-4" />
                             Call Us
                         </Link>
-                        <Link to={""} className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10">
+                        <button onClick={() => setIsModalOpen(true)} className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer">
                             Sign Up For Free
-                        </Link>
+                        </button>
                     </div>
                 </div>
-
-
             </nav>
+
+            <PersonalInfoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
         </Container>
     );
 };
