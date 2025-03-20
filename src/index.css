@@ -1,1 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-Inter: "Inter", "sans-serif";
+  --font-Montserrat: "Montserrat", "serif";
+  --font-Nunito: "Nunito Sans", "serif";
+
+  --color-black: #000;
+
+  --color-primary-10: #387FF5;
+  --color-primary-15: #0f2552;
+  --color-primary-20: #002e82;
+  --color-primary-25: #0a87b5;
+  --color-primary-30: #0a90e2;
+  --color-primary-35: #3cc1df;
+  --color-primary-40: #25b4dc;
+  --color-primary-45: #15a5cd;
+
+  --color-secondary-10: #d49823;
+  --color-secondary-15: #d29723;
+  --color-secondary-20: #ecc733;
+  --color-secondary-25: #ff7f50;
+
+  --color-warning-10: #d40000;
+
+  --color-neutral-10: #333;
+  --color-neutral-15: #121212;
+  --color-neutral-20: #696677;
+  --color-neutral-25: #9b92ad;
+  --color-neutral-30: #303030;
+  --color-neutral-35: #505050;
+  --color-neutral-40: #101010;
+  --color-neutral-45: #7e818c;
+
+  --color-neutral-light-10: #ebe6dc; /* Base Color */
+  --color-neutral-light-15: #ffffff; /* white */
+  --color-neutral-light-20: #fdfdfd; /* softWhite */
+  --color-neutral-light-25: #f2f2f2; /* lightGrey */
+  --color-neutral-light-30: #efefef; /* ghostWhite */
+  --color-neutral-light-35: #e1e1e1; /* platinum */
+  --color-neutral-light-40: #c8c8c8; /* silver */
+  --color-neutral-light-45: #bdc3c7; /* cloudGrey */
+  --color-neutral-light-50: #add8e6;
+  --color-neutral-light-55: #DCDCD;
+  --color-neutral-light-60: #f5f5dc;
+
+  --color-tertiary-green-10: #598d06; /* Forest */
+  --color-tertiary-green-15: #61ba1d; /* Lime */
+  --color-tertiary-green-20: #8db115; /* Olive */
+  --color-tertiary-green-25: #96ca15; /* Chartreuse */
+  --color-tertiary-green-30: #20bb3c; /* Emerald */
+  --color-tertiary-green-35: #25dca2; /* Mint */
+  --color-tertiary-green-40: #56df9b; /* Aquamarine */
+
+  /* Shadow */
+  /* --shadow-custom: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); */
+
+  /* Gradients */
+  /* --bg-gradient-primary: linear-gradient(180deg, #24439b 0%, #0a72b2 100%);
+  --bg-gradient-secondary: linear-gradient(180deg, #e81515 0%, #e98718 100%); */
+}
