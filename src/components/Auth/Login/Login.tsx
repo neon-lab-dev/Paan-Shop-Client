@@ -59,6 +59,8 @@ const Login: React.FC<TLogin> = ({ isModalOpen, setIsModalOpen, modalType, setMo
                     {isLoading ? <LoadingSpinner /> : "Login"}
                 </button>
 
+                <div className="text-neutral-10 cursor-pointer mx-auto">Don't have an account? <button onClick={() => setModalType("Signup")} className="font-bold text-primary-10 cursor-pointer">Signup Now</button></div>
+
 
             </form>
         </Modal>

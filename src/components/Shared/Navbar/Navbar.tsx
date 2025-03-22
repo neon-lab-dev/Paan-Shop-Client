@@ -34,10 +34,6 @@ const Navbar = () => {
                         {navLinks.map((link, index) => (
                             <Link key={index} to={link.path} className="font-medium text-neutral-10 hover:text-primary-10">{link.label}</Link>
                         ))}
-                        <button onClick={() => {
-                            setIsModalOpen(true);
-                            setModalType("Login");
-                        }} className="font-medium text-neutral-10 hover:text-primary-10 cursor-pointer">Login</button>
                     </div>
 
                     <div className="flex items-center gap-5">
@@ -46,11 +42,11 @@ const Navbar = () => {
                                 setIsModalOpen(true);
                                 setModalType("Login");
                             }}
-                            className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-3">
-                            <img src={ICONS.login} alt="login-icon" className="size-4" />
+                            className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-[6px] cursor-pointer">
+                            <img src={ICONS.login} alt="login-icon" className="size-5" />
                             Login
                         </button>
-                      
+
                         <button onClick={() => {
                             setModalType("Signup");
                             setIsModalOpen(true);

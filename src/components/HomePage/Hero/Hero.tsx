@@ -2,6 +2,7 @@ import { ICONS, IMAGES } from "../../../../public/assets";
 import Container from "../../Reusable/Container/Container";
 import { useState } from "react";
 import Signup from "../../Auth/Signup/Signup";
+import Video from "../../Video/Video";
 
 const Hero = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,16 +35,21 @@ const Hero = () => {
                         }} className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer">
                             Get Started Today
                         </button>
-                        <button className="bg-white rounded-[10px] text-neutral-10 px-5 py-3 font-semibold border border-neutral-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-3 cursor-pointer">
-                            <img src={ICONS.play} alt="logo" className="size-4" />
-                            Watch Video
-                        </button>
+                        <a href="callto:+918787834" className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-3">
+                            <img src={ICONS.call} alt="logo" className="size-4" />
+                            Call Us
+                        </a>
                     </div>
 
                     <div className="bg-primary-10 rounded-4xl h-[480px] w-full relative flex items-center justify-center">
                         <img src={IMAGES.heroBg} alt="hero-image" className="absolute w-full h-full rounded-4xl z-0 flex items-center justify-center" />
                         {/* Play button */}
-                        <button className="bg-gray-100/30 rounded-[100px] w-fit px-4 py-3 flex items-center justify-center z-50 shadow-lg cursor-pointer">
+                        <button
+                        onClick={() => {
+                            setModalType("Video");
+                            setIsModalOpen(true);
+                        }}
+                        className="bg-gray-100/30 rounded-[100px] w-fit px-4 py-3 flex items-center justify-center z-50 shadow-lg cursor-pointer">
                             <div className="bg-white rounded-[48px] px-4 py-3 flex items-center gap-3 w-fit text-start">
                                 <img src={ICONS.playBlue} alt="logo" className="size-7" />
                                 <div>
@@ -60,6 +66,10 @@ const Hero = () => {
             {
                 modalType === "Signup" &&
                 <Signup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} step={step} setStep={setStep} modalType={modalType} />
+            }
+            {
+                modalType === "Video" &&
+                <Video isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalType={modalType} />
             }
         </Container>
     );
