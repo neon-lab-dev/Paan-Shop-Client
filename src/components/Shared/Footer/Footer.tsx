@@ -12,7 +12,7 @@ const Footer = () => {
                 <div className="flex justify-between">
                     <div>
                         <Link to={"/"} className="font-extrabold text-neutral-10 text-2xl">
-                            Inpluto
+                            Website Name
                         </Link>
                         <p className="text-gray-20 leading-5 max-w-[267px] my-5">
                             123, XYZ Street, PQR Area
@@ -44,7 +44,7 @@ const Footer = () => {
 
                 {/* Copyright & Social Media Icons */}
                 <div className="flex items-center justify-between">
-                    <p className="text-gray-35 leading-5">©2025 In Pluto. All rights reserved</p>
+                    <p className="text-gray-35 leading-5">©2025 Website Name. All rights reserved</p>
                     <div className="flex items-center gap-4">
                         <a href="" target="_blank">
                             <img src={ICONS.linkedin} alt="linkedin" className="size-5" />
