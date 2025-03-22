@@ -4,6 +4,8 @@ import Container from "../../Reusable/Container/Container";
 import { useState } from "react";
 import Signup from "../../Auth/Signup/Signup";
 import Login from "../../Auth/Login/Login";
+import ForgotPassword from "../../Auth/ForgotPassword/ForgotPassword";
+import ResetPassword from "../../Auth/ResetPassword/ResetPassword";
 
 const Navbar = () => {
     const navLinks = [
@@ -39,10 +41,16 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-5">
-                        <a href="callto:+918787834" className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-3">
-                            <img src={ICONS.call} alt="logo" className="size-4" />
-                            Call Us
-                        </a>
+                        <button
+                            onClick={() => {
+                                setIsModalOpen(true);
+                                setModalType("Login");
+                            }}
+                            className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-3">
+                            <img src={ICONS.login} alt="login-icon" className="size-4" />
+                            Login
+                        </button>
+                      
                         <button onClick={() => {
                             setModalType("Signup");
                             setIsModalOpen(true);
@@ -60,7 +68,15 @@ const Navbar = () => {
             }
             {
                 modalType === "Login" &&
-                <Login isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} step={step} setStep={setStep} modalType={modalType} />
+                <Login isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} step={step} setStep={setStep} modalType={modalType} setModalType={setModalType} />
+            }
+            {
+                modalType === "ForgotPassword" &&
+                <ForgotPassword isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalType={modalType} setModalType={setModalType} />
+            }
+            {
+                modalType === "ResetPassword" &&
+                <ResetPassword isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalType={modalType} setModalType={setModalType} />
             }
         </Container>
     );

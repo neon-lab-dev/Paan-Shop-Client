@@ -1,39 +1,34 @@
 import { useForm } from "react-hook-form";
-import TextInput from "../../Reusable/TextInput/TextInput";
-import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
-import { useState } from "react";
 import Modal from "../../Reusable/Modal/Modal";
+import TextInput from "../../Reusable/TextInput/TextInput";
+import { useState } from "react";
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 type TFormData = {
     email: string;
-    password: string;
 }
-
-type TLogin = {
+type TForgotPassword = {
     isModalOpen: boolean;
     setIsModalOpen: (isOpen: boolean) => void;
-    step: "personal" | "business";
-    setStep: (step: "personal" | "business") => void;
     modalType: string;
     setModalType: (modalType: string) => void;
 }
-const Login: React.FC<TLogin> = ({ isModalOpen, setIsModalOpen, modalType, setModalType }) => {
+
+const ForgotPassword: React.FC<TForgotPassword> = ({ isModalOpen, setIsModalOpen, modalType, setModalType }) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<TFormData>();
-
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const handleLogin = (data: TFormData) => {
+    const handleForgotPassword = (data: TFormData) => {
         setIsLoading(true);
         console.log(data);
-    };
-
+    }
     return (
         <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalType={modalType}>
-            <form onSubmit={handleSubmit(handleLogin)} className="flex flex-col gap-5 mt-6">
+            <form onSubmit={handleSubmit(handleForgotPassword)} className="flex flex-col gap-5 mt-6">
                 <TextInput
                     label="Email"
                     placeholder="Enter your email"
@@ -41,28 +36,19 @@ const Login: React.FC<TLogin> = ({ isModalOpen, setIsModalOpen, modalType, setMo
                     error={errors.email}
                     {...register("email", { required: "Email is required" })}
                 />
-                <TextInput
-                    label="Password"
-                    placeholder="Enter a strong password"
-                    type="password"
-                    error={errors.password}
-                    {...register("password", { required: "Password is required" })} />
-
-                <div className="flex justify-end">
-                    <button onClick={() => setModalType("ForgotPassword")} className="text-primary-10 font-medium cursor-pointer">Forgot Password?</button>
-                </div>
 
                 <button
+                onClick={() => setModalType("ResetPassword")}
                     className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer w-full"
                     type="submit"
                     disabled={isLoading}>
-                    {isLoading ? <LoadingSpinner /> : "Login"}
+                    {isLoading ? <LoadingSpinner /> : "Submit"}
                 </button>
 
-
+                <button onClick={() => setModalType("Login")} className="text-primary-10 font-medium cursor-pointer">Back to Login</button>
             </form>
         </Modal>
     );
 };
 
-export default Login;
+export default ForgotPassword;
