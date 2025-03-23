@@ -5,6 +5,7 @@ import BusinessInfoForm from "../BusinessInfoForm/BusinessInfoForm";
 import { ICONS } from "../../../../public/assets";
 import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 import Modal from "../../Reusable/Modal/Modal";
+import ActionButton from "../../Reusable/Button/Button";
 
 type TFormData = {
     fullName: string;
@@ -102,10 +103,12 @@ const Signup:React.FC<TSignup> = ({isModalOpen, setIsModalOpen, step, setStep, m
                     <div className="flex items-center gap-2">
                         {
                             step === "business" &&
-                            <button onClick={() => setStep("personal")} className="bg-white rounded-[10px] text-neutral-10 px-5 py-3 font-semibold border border-neutral-10/30 hover:bg-primary-10/20 transition duration-300 flex items-center gap-2 cursor-pointer">
-                                <img src={ICONS.leftArrow} alt="left-arrow" className="size-3" />
-                                Back
-                            </button>
+                            <ActionButton
+  onClick={() => setStep("personal")}
+  icon={ICONS.leftArrow}
+  label="Back"
+  variant="neutral"
+/>
                         }
                         <button
                             className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer"

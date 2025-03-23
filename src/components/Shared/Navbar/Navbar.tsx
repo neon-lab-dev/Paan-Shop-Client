@@ -6,6 +6,7 @@ import Signup from "../../Auth/Signup/Signup";
 import Login from "../../Auth/Login/Login";
 import ForgotPassword from "../../Auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "../../Auth/ResetPassword/ResetPassword";
+import ActionButton from "../../Reusable/Button/Button";
 
 const Navbar = () => {
     const navLinks = [
@@ -37,23 +38,26 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-5">
-                        <button
-                            onClick={() => {
-                                setIsModalOpen(true);
-                                setModalType("Login");
-                            }}
-                            className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-[6px] cursor-pointer">
-                            <img src={ICONS.login} alt="login-icon" className="size-5" />
-                            Login
-                        </button>
+                    <ActionButton
+  onClick={() => {
+    setIsModalOpen(true);
+    setModalType("Login");
+  }}
+  icon={ICONS.login}
+  label="Login"
+  variant="secondary"
+/>
+<ActionButton
+  onClick={() => {
+    setModalType("Signup");
+    setIsModalOpen(true);
+    setStep("personal");
+  }}
+  label="Sign Up For Free"
+  variant="primary"
+/>
 
-                        <button onClick={() => {
-                            setModalType("Signup");
-                            setIsModalOpen(true);
-                            setStep("personal");
-                        }} className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer">
-                            Sign Up For Free
-                        </button>
+                       
                     </div>
                 </div>
             </nav>

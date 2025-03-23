@@ -20,13 +20,17 @@ const ResetPassword: React.FC<TResetPassword> = ({ isModalOpen, setIsModalOpen, 
         register,
         handleSubmit,
         formState: { errors },
+        watch
     } = useForm<TFormData>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const handleResetPassword = (data: TFormData) => {
         setIsLoading(true);
         console.log(data);
+        
     }
+    
+    const newPassword = watch('newPassword');
     return (
         <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} modalType={modalType}>
             <form onSubmit={handleSubmit(handleResetPassword)} className="flex flex-col gap-5 mt-6">
@@ -38,11 +42,14 @@ const ResetPassword: React.FC<TResetPassword> = ({ isModalOpen, setIsModalOpen, 
                     {...register("newPassword", { required: "Password is required" })} />
 
                 <TextInput
-                    label="Password"
+                    label="Confirm Password"
                     placeholder="Re-enter the password"
                     type="password"
                     error={errors.confirmPassword}
-                    {...register("confirmPassword", { required: "Password is required" })} />
+                    {...register("confirmPassword", {  required: "Confirm password is required",
+                        validate: (value) =>
+                            value === newPassword || "Passwords do not match"
+                    })} />
 
                 <button
                     className="bg-primary-10 rounded-[10px] text-white px-5 py-3 font-semibold border border-primary-10 cursor-pointer w-full"
