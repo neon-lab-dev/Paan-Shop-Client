@@ -38,26 +38,24 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-5">
-                    <ActionButton
-  onClick={() => {
-    setIsModalOpen(true);
-    setModalType("Login");
-  }}
-  icon={ICONS.login}
-  label="Login"
-  variant="secondary"
-/>
-<ActionButton
-  onClick={() => {
-    setModalType("Signup");
-    setIsModalOpen(true);
-    setStep("personal");
-  }}
-  label="Sign Up For Free"
-  variant="primary"
-/>
-
-                       
+                        <ActionButton
+                            onClick={() => {
+                                setIsModalOpen(true);
+                                setModalType("Login");
+                            }}
+                            icon={ICONS.login}
+                            label="Login"
+                            variant="secondary"
+                        />
+                        <ActionButton
+                            onClick={() => {
+                                setModalType("Signup");
+                                setIsModalOpen(true);
+                                setStep("personal");
+                            }}
+                            label="Sign Up For Free"
+                            variant="primary"
+                        />
                     </div>
                 </div>
             </nav>

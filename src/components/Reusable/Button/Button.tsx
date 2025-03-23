@@ -25,8 +25,7 @@ type TActionButton = {
       <button
         onClick={onClick}
         type={type}
-        className={`${baseClasses} ${variantClasses[variant]}`}
-      >
+        className={`${baseClasses} ${variantClasses[variant]}`}>
         {icon && <img src={icon} alt={`${label}-icon`} className="size-5" />}
         {label}
       </button>

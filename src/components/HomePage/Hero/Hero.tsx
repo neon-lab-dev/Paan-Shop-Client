@@ -47,7 +47,7 @@ const Hero = () => {
             />
             <a
               href="callto:+918787834"
-className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-3"
+              className="bg-white rounded-[10px] text-primary-10 px-5 py-3 font-semibold border border-primary-10 hover:bg-primary-10/20 transition duration-300 flex items-center gap-3"
             >
               <img src={ICONS.call} alt="logo" className="size-4" />
               Call Us
