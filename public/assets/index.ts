@@ -11,6 +11,7 @@ import cross from "./icons/cross.svg";
 import leftArrow from "./icons/left-arrow.svg";
 import tickMark from "./icons/tick.svg";
 import login from "./icons/login.svg";
+import pen from "./icons/pen.svg";
 
 import heroBg from "./images/hero-bg.png";
 import boxShape from "./images/box-shape.png";
@@ -30,6 +31,7 @@ export const ICONS = {
     leftArrow,
     tickMark,
     login,
+    pen,
 };
 
 export const IMAGES = {

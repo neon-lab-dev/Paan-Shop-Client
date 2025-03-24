@@ -5,6 +5,7 @@ import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../pages/OwnerDashboard/Dashboard/Dashboard";
 import AddNewProduct from "../pages/OwnerDashboard/AddNewProduct/AddNewProduct";
 import MyProducts from "../pages/OwnerDashboard/MyProducts/MyProducts";
+import Profile from "../pages/OwnerDashboard/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "my-products",
         element: <MyProducts />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

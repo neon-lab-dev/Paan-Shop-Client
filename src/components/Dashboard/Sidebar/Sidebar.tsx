@@ -57,7 +57,7 @@ const Sidebar: React.FC = () => {
             Website Name
           </h1>
         </Link>
-        <div>
+        <div className="mt-20">
           <ul className="flex flex-col gap-2">
             {menus.map((menu) => (
               <li

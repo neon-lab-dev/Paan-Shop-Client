@@ -1,5 +1,5 @@
 type TActionButton = {
-    onClick: () => void;
+    onClick?: () => void;
     icon?: string;
     label: string;
     variant?: "primary" | "secondary" |"neutral" ;
@@ -13,7 +13,7 @@ type TActionButton = {
     variant = "secondary",
     type = "button",
   }) => {
-    const baseClasses = "rounded-[10px] px-5 py-3 font-semibold border transition duration-300 flex items-center gap-[6px] cursor-pointer";
+    const baseClasses = "rounded-[10px] px-5 py-3 font-semibold border transition duration-300 flex items-center gap-[7px] cursor-pointer";
   
     const variantClasses = {
       primary: "bg-primary-10 text-white border-primary-10",
